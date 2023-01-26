@@ -1,0 +1,9 @@
+kind: Secret
+type: kubernetes.io/dockerconfigjson
+apiVersion: v1
+metadata:
+  name: registry-dockerhub-config
+  labels:
+    app: app-name
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJnaGNyLmlvIjp7ImF1dGgiOiJjMmhwZG1GamFISnZiV1U2WkdOcmNsOXdZWFJmYnpSUVVtNVNVMlpNTjNwdldTMDNSRXhyU0dOSk4xVXRSR293In19fQo=

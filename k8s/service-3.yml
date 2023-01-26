@@ -25,7 +25,7 @@ spec:
             - name: HELLOCONTAINERS_MESSAGE
               value: 'Hello from Service 3!'
       imagePullSecrets:
-        - name: dockerconfigjson-github-com
+        - name: registry-dockerhub-config
       nodeSelector:
         kubernetes.io/os: linux
 ---

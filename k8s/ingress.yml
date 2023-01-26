@@ -2,9 +2,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx-ingress-microk8s
+  name: pik8s-load-balanced
   labels:
-    app: nginx-ingress-microk8s
+    app: pik8s-load-balanced
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
@@ -47,7 +47,7 @@ metadata:
   namespace: ingress
 spec:
   selector:
-    name: nginx-ingress-microk8s
+    name: pik8s-load-balanced
   type: LoadBalancer
   #loadBalancerIP: <<LOAD BALANCER IP HERE>>
   ports:
