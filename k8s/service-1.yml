@@ -1,0 +1,44 @@
+# service-1.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: service1
+  template:
+    metadata:
+      labels:
+        app: service1
+    spec:
+      containers:
+        - name: service1
+          image: ghcr.io/chrisserverless/hellocontainers:main@sha256:406fe93a545da2386abebcd8fde55f7fc5e0167981636e230bb7abb2104a0a17
+          ports:
+            - name: http
+              containerPort: 80
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: HELLOCONTAINERS_MESSAGE
+              value: 'Hello from Service 1!'
+      imagePullSecrets:
+        - name: dockerconfigjson-github-com
+      nodeSelector:
+        kubernetes.io/os: linux
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service1
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: service1
+  type: ClusterIP

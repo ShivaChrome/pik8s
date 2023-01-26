@@ -1,0 +1,3 @@
+echo -n "chrisserverless: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" | base64
+echo -n "chrisserverless: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" | base64
+Y2hyaXNzZXJ2ZXJsZXNzOmdocF9mZGl4TFFheHdGRkpjd0FQMG9aYjRLeWUyaE1ubXowVUl5cWM=
