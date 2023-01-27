@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: service1
-          image: ghcr.io/chrisserverless/hellocontainers:main@sha256:406fe93a545da2386abebcd8fde55f7fc5e0167981636e230bb7abb2104a0a17
+          image: shivachrome/pik8s:latest
           ports:
             - name: http
               containerPort: 80
@@ -25,7 +25,7 @@ spec:
             - name: HELLOCONTAINERS_MESSAGE
               value: 'Hello from Service 1!'
       imagePullSecrets:
-        - name: registry-dockerhub-config
+        - name: registry-dockerhub-secret
       nodeSelector:
         kubernetes.io/os: linux
 ---
